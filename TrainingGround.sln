@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlSugar.Explore", "src\SqlSugar.Explore\SqlSugar.Explore.csproj", "{42BEA2F3-3C64-422E-AF80-1C58E03C206D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "src\ConsoleApp1\ConsoleApp1.csproj", "{0F6F2EC2-D1AB-3572-F5D4-98AF12FB2E9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42BEA2F3-3C64-422E-AF80-1C58E03C206D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42BEA2F3-3C64-422E-AF80-1C58E03C206D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42BEA2F3-3C64-422E-AF80-1C58E03C206D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42BEA2F3-3C64-422E-AF80-1C58E03C206D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F6F2EC2-D1AB-3572-F5D4-98AF12FB2E9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F6F2EC2-D1AB-3572-F5D4-98AF12FB2E9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F6F2EC2-D1AB-3572-F5D4-98AF12FB2E9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F6F2EC2-D1AB-3572-F5D4-98AF12FB2E9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3A5EC81-361F-4D7C-99DE-0071F629A496}
+	EndGlobalSection
+EndGlobal
