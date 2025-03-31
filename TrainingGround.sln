@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35828.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlSugar.Explore", "src\SqlSugar.Explore\SqlSugar.Explore.csproj", "{42BEA2F3-3C64-422E-AF80-1C58E03C206D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlSugar.Explore", "src\SqlSugar.Explore\SqlSugar.Explore.csproj", "{42BEA2F3-3C64-422E-AF80-1C58E03C206D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "src\ConsoleApp1\ConsoleApp1.csproj", "{0F6F2EC2-D1AB-3572-F5D4-98AF12FB2E9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "src\ConsoleApp1\ConsoleApp1.csproj", "{0F6F2EC2-D1AB-3572-F5D4-98AF12FB2E9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "src\WpfApp1\WpfApp1.csproj", "{F41B1E2A-1380-4344-B9D1-DEECA748D2AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0F6F2EC2-D1AB-3572-F5D4-98AF12FB2E9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F6F2EC2-D1AB-3572-F5D4-98AF12FB2E9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F6F2EC2-D1AB-3572-F5D4-98AF12FB2E9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F41B1E2A-1380-4344-B9D1-DEECA748D2AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F41B1E2A-1380-4344-B9D1-DEECA748D2AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F41B1E2A-1380-4344-B9D1-DEECA748D2AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F41B1E2A-1380-4344-B9D1-DEECA748D2AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
