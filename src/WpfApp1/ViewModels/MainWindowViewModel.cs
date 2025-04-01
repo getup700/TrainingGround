@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
+using CommunityToolkit.Mvvm.Messaging.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,14 @@ namespace WpfApp1.ViewModels
             {
                 Message = $"我收到了消息{DateTime.Now}";
             });
-            WeakReferenceMessenger.Default.Register<MessageEvent>(this, (o, e) =>
+            //WeakReferenceMessenger.Default.Register<MessageEvent>(this, (o, e) =>
+            //{
+            //    Message = $"我收到了消息{DateTime.Now}";
+            //});
+
+            WeakReferenceMessenger.Default.Register<ValueChangedMessage<string>>(this, (o, e) =>
             {
-                Message = $"我收到了消息{DateTime.Now}";
+                Message = e.Value;
             });
         }
 
