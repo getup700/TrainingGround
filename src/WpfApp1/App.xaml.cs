@@ -33,6 +33,7 @@ public partial class App : PrismApplication
         var hostBuilder = Host.CreateApplicationBuilder();
         var services = hostBuilder.Services
              .AddSingleton<IEventAggregator, EventAggregator>()
+             .AddHostedService<ReceiveWorker>()
              .AddHostedService<SendWorker>();
 
         _host = hostBuilder.Build();
