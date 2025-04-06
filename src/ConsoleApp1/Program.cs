@@ -1,26 +1,49 @@
-﻿using ConsoleApp1.Services;
-using ConsoleApp1.TransientDepenSingleton;
-using Microsoft.Extensions.DependencyInjection;
+﻿using System.Reflection.PortableExecutable;
+using System.Threading.Tasks;
 
-var service = new ServiceCollection();
+var service = new MyService();
+service.Start();
+Thread.Sleep(3000);
+service.Stop();
 
-service.AddTransient<TransientService>();
-service.AddSingleton<SingletonService>();
-service.AddSingleton<ScopeService>();
+Thread.Sleep(1000);
 
-service.AddTransient<Transient>();
-service.AddSingleton<Singleton>();
+class MyService
+{
+    volatile bool _isRunning;
+    Thread _thread;
 
-var provider = service.BuildServiceProvider();
+    public void Stop()
+    {
+        Console.WriteLine("Stop service");
+        _isRunning = false;
+    }
 
-//Console.WriteLine(provider.GetService<SingletonService>().Console());
-//Console.WriteLine(provider.GetService<SingletonService>().Console());
-//Console.WriteLine(provider.GetService<SingletonService>().Console());
-//Console.WriteLine(provider.GetService<SingletonService>().Console());
+    public void Start()
+    {
+        Console.WriteLine("Start service");
+        _thread = new Thread(() =>
+        {
+            _isRunning = true;
+            ThreadJob();
+        });
+        _thread.IsBackground = true;
+        _thread.Start();
+    }
 
-Console.WriteLine(provider.GetService<Transient>().Output());
-Console.WriteLine(provider.GetService<Transient>().Output());
-Console.WriteLine(provider.GetService<Singleton>().Output());
-Console.WriteLine(provider.GetService<Singleton>().Output());
-Console.WriteLine(provider.GetService<Singleton>().Output2());
-Console.WriteLine(provider.GetService<Singleton>().Output2());
+    void ThreadJob()
+    {
+        while (_isRunning)
+        {
+            Console.WriteLine("working...");
+            Process();
+        }
+    }
+
+
+    void Process()
+    {
+        Thread.Sleep(3000);
+
+    }
+}

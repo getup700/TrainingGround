@@ -17,7 +17,8 @@ namespace DbConnection.Test.Repositories
 
         private ActorRepository CreateActorRepository()
         {
-            return new ActorRepository();
+            //return new ActorRepository();
+            return null;
         }
 
         [Test]

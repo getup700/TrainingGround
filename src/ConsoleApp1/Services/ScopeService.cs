@@ -3,12 +3,10 @@
     internal class ScopeService
     {
         private string _service;
-        private readonly SingletonService _singletonService;
 
-        public ScopeService(SingletonService singletonService)
+        public ScopeService()
         {
             _service = Guid.NewGuid().ToString();
-            _singletonService = singletonService;
         }
 
         public string Console()
