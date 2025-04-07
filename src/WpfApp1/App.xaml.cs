@@ -8,6 +8,8 @@ using DryIoc;
 using DryIoc.Microsoft.DependencyInjection;
 using WpfApp1.Workers;
 using WpfApp1.Views;
+using WpfApp1.Views.Communication;
+using WpfApp1.ViewModels.Communication;
 
 namespace WpfApp1;
 
@@ -56,6 +58,9 @@ public partial class App : PrismApplication
     }
     protected override void RegisterTypes(IContainerRegistry containerRegistry)
     {
-        
+        containerRegistry.RegisterForNavigation<SharedDataView, SharedDataViewModel>();
+        containerRegistry.RegisterForNavigation<MessageQueueView, MessageQueueViewModel>();
+        containerRegistry.RegisterForNavigation<PipeStreamView, PipeStreamViewModel>();
+        containerRegistry.RegisterForNavigation<DelegateView, DelegateViewModel>();
     }
 }

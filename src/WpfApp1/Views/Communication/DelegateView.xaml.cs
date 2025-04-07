@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp1.Views
+namespace WpfApp1.Views.Communication
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// DelegateView.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow 
+    public partial class DelegateView : UserControl
     {
-        public MainWindow()
+        public DelegateView()
         {
             InitializeComponent();
         }

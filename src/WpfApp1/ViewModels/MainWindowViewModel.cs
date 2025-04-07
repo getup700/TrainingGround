@@ -1,4 +1,6 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using CommunityToolkit.Mvvm.Messaging.Messages;
 using System;
 using System.Collections.Generic;
@@ -7,49 +9,27 @@ using System.Text;
 using System.Threading.Tasks;
 using WpfApp1.Events;
 
-namespace WpfApp1.ViewModels
+namespace WpfApp1.ViewModels;
+
+internal partial class MainWindowViewModel : ObservableObject
 {
-    internal class MainWindowViewModel : BindableBase
+    private readonly IRegionManager _regionManager;
+
+    public MainWindowViewModel(IRegionManager regionManager)
     {
-        private readonly IEventAggregator _eventAggregator;
-        private readonly IServiceProvider _serviceProvider;
+        _regionManager = regionManager;
+    }
 
-        public MainWindowViewModel(IEventAggregator eventAggregator, IServiceProvider serviceProvider)
+    [RelayCommand]
+    public void Route(string key)
+    {
+        try
         {
-            _eventAggregator = eventAggregator;
-            _serviceProvider = serviceProvider;
-
-            _eventAggregator.GetEvent<MessageEvent>().Subscribe(() =>
-            {
-                Message = $"我收到了消息{DateTime.Now}";
-            });
-            //WeakReferenceMessenger.Default.Register<MessageEvent>(this, (o, e) =>
-            //{
-            //    Message = $"我收到了消息{DateTime.Now}";
-            //});
-
-            WeakReferenceMessenger.Default.Register<ValueChangedMessage<string>>(this, (o, e) =>
-            {
-                Message = e.Value;
-            });
+            _regionManager.RequestNavigate("MainRegion", key);
         }
-
-        private string _message = "666";
-
-        public string Message
+        catch (Exception e)
         {
-            get { return _message; }
-            set { SetProperty(ref _message, value); }
+            //
         }
-
-        private DelegateCommand _sendCommand;
-
-        public DelegateCommand SendCommand => _sendCommand ??= new DelegateCommand(Send); 
-
-        public void Send()
-        {
-            _eventAggregator.GetEvent<MessageEvent>().Publish();
-        }
-
     }
 }
