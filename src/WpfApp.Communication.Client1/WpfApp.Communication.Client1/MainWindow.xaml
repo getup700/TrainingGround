@@ -1,0 +1,40 @@
+﻿<Window x:Class="WpfApp.Communication.Client1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp.Communication.Client1"
+        mc:Ignorable="d"
+        Title="MainWindow.Client1" Height="450" Width="800">
+    <DockPanel>
+        <TextBox x:Name="txtMessage"
+                 DockPanel.Dock="Top"
+                 HorizontalAlignment="Stretch"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top" />
+        <Button DockPanel.Dock="Top"
+                Content="Send"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top"
+                Width="75"
+                Command="{Binding SendCommand}"
+                CommandParameter="{Binding ElementName=txtMessage, Path=Text}" />
+        <ListBox x:Name="lstMessages"
+                 ItemsSource="{Binding Messages}"
+                 DockPanel.Dock="Bottom"
+                 HorizontalAlignment="Stretch"
+                 HorizontalContentAlignment="Stretch"
+                 VerticalAlignment="Top">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Content}" />
+                        <TextBlock Text="{Binding Description}"
+                                   Background="Gray" />
+                        <TextBlock Text="{Binding CreateTime}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</Window>
