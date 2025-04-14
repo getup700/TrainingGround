@@ -2,7 +2,7 @@
 
 namespace WebApplication1.SignalR.Hubs;
 
-public class ChatHub:Hub
+public class ChatHub : Hub
 {
     private readonly ILogger<ChatHub> _logger;
 
@@ -14,6 +14,12 @@ public class ChatHub:Hub
     public async Task SendMessage(string user, string message)
     {
         await Clients.All.SendAsync("ReceiveMessage", user, message);
-        _logger.LogInformation("Message sent: {user}: {message}", user, message);
+        _logger.LogInformation($"{user} send a message:<{message}> to everyone");
+    }
+
+    public async Task SendTargetMessage(string user, string targetUser, string message)
+    {
+        await Clients.User(targetUser).SendAsync("DDDMessage", user, message);
+        _logger.LogInformation($"{user} send a message:<{message}> to {targetUser}");
     }
 }

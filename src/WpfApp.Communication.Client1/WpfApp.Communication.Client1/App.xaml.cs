@@ -1,11 +1,9 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using WpfApp.Communication.Client1;
+using WpfApp.Communication.Client1.ViewModels;
+using WpfApp.Communication.Client1.Views;
 
 namespace WpfApp.Communication.Client1;
 
