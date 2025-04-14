@@ -123,7 +123,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <DockPanel x:Name="msg">
-                        <DockPanel.Style>
+                        <!--<DockPanel.Style>
                             <Style TargetType="DockPanel">
                                 <Style.Triggers>
                                     <DataTrigger>
@@ -143,7 +143,7 @@
 
                                 </Style.Triggers>
                             </Style>
-                        </DockPanel.Style>
+                        </DockPanel.Style>-->
                         <TextBlock DockPanel.Dock="Top"
                                    Text="{Binding CreateTime}"
                                    FontSize="8" />

@@ -16,6 +16,7 @@ internal partial class MainWindowViewModel : ObservableObject
         InitializeHubConnection();
         Friends.Add(new User() { Name = "omar" });
         Friends.Add(new User() { Name = "dan", IsOnLine = true });
+        Me.Name = "stark";
     }
 
     public ObservableCollection<User> Friends { get; set; } = [];
@@ -27,12 +28,6 @@ internal partial class MainWindowViewModel : ObservableObject
     User _me = new();
 
     public ObservableCollection<Message> Messages { get; set; } = [];
-
-    [ObservableProperty]
-    string _sourceUser = "client1";
-
-    [ObservableProperty]
-    string _targetUser;
 
     [ObservableProperty]
     string _inputMessage;
@@ -72,39 +67,39 @@ internal partial class MainWindowViewModel : ObservableObject
     }
 
     [RelayCommand]
-    public void Send(string message)
+    public void Send()
     {
-        if (string.IsNullOrWhiteSpace(message)) return;
-        if (string.IsNullOrWhiteSpace(SourceUser)) return;
+        if (string.IsNullOrWhiteSpace(InputMessage)) return;
+        if (string.IsNullOrWhiteSpace(Me.Name)) return;
 
         if (_hubConnection.State == HubConnectionState.Disconnected)
         {
             Messages.Add(new Message()
             {
-                Content = message,
-                Description = "ERROR DATE"
+                Content = InputMessage,
+                Description = "消息未发出"
             });
             return;
         }
 
-        if (string.IsNullOrWhiteSpace(TargetUser))
+        if (string.IsNullOrWhiteSpace(CurrentChatUser?.Name))
         {
-            _hubConnection.SendAsync("SendMessage", SourceUser, message);
+            _hubConnection.SendAsync("SendMessage", Me.Name, InputMessage);
             Messages.Add(new Message()
             {
-                Source = SourceUser,
+                Source = Me.Name,
                 Target = "All",
-                Content = message
+                Content = InputMessage
             });
         }
         else
         {
-            _hubConnection.SendAsync("SendTargetMessage", SourceUser, TargetUser, message);
+            _hubConnection.SendAsync("SendTargetMessage", Me.Name, CurrentChatUser.Name, InputMessage);
             Messages.Add(new Message()
             {
-                Source = SourceUser,
-                Target = TargetUser,
-                Content = message
+                Source = Me.Name,
+                Target = CurrentChatUser.Name,
+                Content = InputMessage
             });
 
         }
