@@ -2,15 +2,15 @@
 {
     internal class Message
     {
-        public string Source { get; set; }
+        public string Sender { get; set; }
 
-        public string Target { get; set; }
+        public string Receiver { get; set; }
 
         public string Content { get; set; }
 
         public string? Description { get; set; }
 
-        public DateTime CreateTime { get; } = DateTime.Now;
+        public DateTime CreateTime { get; set; } = DateTime.Now;
 
     }
 }
