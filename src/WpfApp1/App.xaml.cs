@@ -10,6 +10,7 @@ using WpfApp1.Workers;
 using WpfApp1.Views;
 using WpfApp1.Views.Communication;
 using WpfApp1.ViewModels.Communication;
+using WpfApp1.Services;
 
 namespace WpfApp1;
 
@@ -19,9 +20,12 @@ namespace WpfApp1;
 public partial class App : PrismApplication
 {
     private IHost _host;
+    
+  public static IContainerProvider Provider { get;private set; } 
 
     protected override Window CreateShell()
     {
+        Provider = Container;
         return Container.Resolve<MainWindow>();
     }
 
@@ -62,5 +66,9 @@ public partial class App : PrismApplication
         containerRegistry.RegisterForNavigation<MessageQueueView, MessageQueueViewModel>();
         containerRegistry.RegisterForNavigation<PipeStreamView, PipeStreamViewModel>();
         containerRegistry.RegisterForNavigation<DelegateView, DelegateViewModel>();
+
+        containerRegistry.RegisterSingleton<IConsoleStrategy, HelloConsoleStrategy>("hellow");
+        containerRegistry.RegisterSingleton<IConsoleStrategy, HiConsoleStrategy>("hi");
     }
+
 }

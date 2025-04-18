@@ -20,6 +20,7 @@ internal class SendWorker : BackgroundService
         _eventAggregator = eventAggregator;
     }
 
+    [DebuggerStepThrough]
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         var periodTimer = new PeriodicTimer(TimeSpan.FromSeconds(1));
