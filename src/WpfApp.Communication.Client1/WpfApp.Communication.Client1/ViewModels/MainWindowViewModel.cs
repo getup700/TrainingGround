@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.AspNetCore.SignalR.Client;
 using WpfApp.Communication.Client1.Models;
+using WpfApp.Communication.Client1.Services;
 
 namespace WpfApp.Communication.Client1.ViewModels;
 
@@ -35,32 +36,43 @@ internal partial class MainWindowViewModel : ObservableObject
     [ObservableProperty]
     string _newFriendName;
 
+    [ObservableProperty]
+    HubConnectionState _connState;
+
 
     private async Task InitializeHubConnection()
     {
-        _hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
+        _hubConnection.On<string, string>("ReceiveStringMessage", (user, message) =>
         {
             App.Current.Dispatcher.Invoke(() =>
             {
                 Messages.Add(new Message()
                 {
-                    Source = user,
+                    Sender = user,
                     Content = message,
                     Description = "远程接收到的消息"
                 });
             });
         });
-        _hubConnection.On<string, string, string>("ReceivePrivateMessage", (sourceUser, targetUser, message) =>
+        _hubConnection.On<string, string, string>("ReceivePrivateStringMessage", (sourceUser, targetUser, message) =>
+        {
+            App.Current.Dispatcher.Invoke(async () =>
+            {
+                var newMessage = new Message()
+                {
+                    Sender = sourceUser,
+                    Receiver = targetUser,
+                    Content = message,
+                    Description = "远程接收到的消息"
+                };
+                Messages.Add(newMessage);
+            });
+        });
+        _hubConnection.On<Message>("ReceiveMessage", (message) =>
         {
             App.Current.Dispatcher.Invoke(() =>
             {
-                Messages.Add(new Message()
-                {
-                    Source = sourceUser,
-                    Target = targetUser,
-                    Content = message,
-                    Description = "远程接收到的消息"
-                });
+                Messages.Add(message);
             });
         });
         await ConnectHub();
@@ -72,35 +84,31 @@ internal partial class MainWindowViewModel : ObservableObject
         if (string.IsNullOrWhiteSpace(InputMessage)) return;
         if (string.IsNullOrWhiteSpace(Me.Name)) return;
 
+        var newMessage = new Message()
+        {
+            Sender = Me.Name,
+            Content = InputMessage
+        };
+
         if (_hubConnection.State == HubConnectionState.Disconnected)
         {
-            Messages.Add(new Message()
-            {
-                Content = InputMessage,
-                Description = "消息未发出"
-            });
+            newMessage.Description = "消息未发出";
+            Messages.Add(newMessage);
             return;
         }
 
         if (string.IsNullOrWhiteSpace(CurrentChatUser?.Name))
         {
-            _hubConnection.SendAsync("SendMessage", Me.Name, InputMessage);
-            Messages.Add(new Message()
-            {
-                Source = Me.Name,
-                Target = "All",
-                Content = InputMessage
-            });
+            newMessage.Receiver = "All";
+
+            _hubConnection.SendAsync("SendMessage", newMessage);
+            Messages.Add(newMessage);
         }
         else
         {
-            _hubConnection.SendAsync("SendTargetMessage", Me.Name, CurrentChatUser.Name, InputMessage);
-            Messages.Add(new Message()
-            {
-                Source = Me.Name,
-                Target = CurrentChatUser.Name,
-                Content = InputMessage
-            });
+            newMessage.Receiver = CurrentChatUser.Name;
+            _hubConnection.SendAsync("SendPrivateMessage", newMessage);
+            Messages.Add(newMessage);
 
         }
 
@@ -129,6 +137,15 @@ internal partial class MainWindowViewModel : ObservableObject
                 });
             }
         }
+        else
+        {
+            await _hubConnection.StopAsync();
+            Messages.Add(new Message()
+            {
+                Content = "Disconnected from SignalR server."
+            });
+        }
+        ConnState = _hubConnection.State;
     }
 
     [RelayCommand]

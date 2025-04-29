@@ -6,7 +6,7 @@ public class DataSubscriptionHub : Hub
 {
     private readonly Dictionary<string, List<string>> _subscriptions = new Dictionary<string, List<string>>();
 
-    public async Task Subscribe(string dataType)
+    public void Subscribe(string dataType)
     {
         if (!_subscriptions.ContainsKey(dataType))
         {
@@ -15,7 +15,7 @@ public class DataSubscriptionHub : Hub
         _subscriptions[dataType].Add(Context.ConnectionId);
     }
 
-    public async Task Unsubscribe(string dataType)
+    public void Unsubscribe(string dataType)
     {
         if (_subscriptions.ContainsKey(dataType))
         {
