@@ -34,6 +34,8 @@
             <TabItem Header="委托"
                      Tag="DelegateView">
             </TabItem>
+            <TabItem Header="数据"
+                     Tag="RefreshDataView"></TabItem>
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
                     <i:InvokeCommandAction Command="{Binding RouteCommand}"

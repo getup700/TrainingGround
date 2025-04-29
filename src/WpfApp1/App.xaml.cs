@@ -66,6 +66,7 @@ public partial class App : PrismApplication
         containerRegistry.RegisterForNavigation<MessageQueueView, MessageQueueViewModel>();
         containerRegistry.RegisterForNavigation<PipeStreamView, PipeStreamViewModel>();
         containerRegistry.RegisterForNavigation<DelegateView, DelegateViewModel>();
+        containerRegistry.RegisterForNavigation<RefreshDataView, RefreshDataViewModel>();
 
         containerRegistry.RegisterSingleton<IConsoleStrategy, HelloConsoleStrategy>("hellow");
         containerRegistry.RegisterSingleton<IConsoleStrategy, HiConsoleStrategy>("hi");
