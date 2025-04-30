@@ -26,8 +26,13 @@
             <Button Content="Restart"
                     Command="{Binding RestartCommand}" />
         </StackPanel>
-        <TextBlock DockPanel.Dock="Top"
-                   Text="{Binding Message}" />
+        <StackPanel Orientation="Horizontal"
+                    DockPanel.Dock="Top">
+            <TextBlock Text="{Binding Count}"
+                       Width="50" />
+            <TextBlock DockPanel.Dock="Top"
+                       Text="{Binding Message}" />
+        </StackPanel>
         <ListBox ItemsSource="{Binding Students}"
                  Style="{StaticResource BaseStyle}">
             <ListBox.ItemTemplate>

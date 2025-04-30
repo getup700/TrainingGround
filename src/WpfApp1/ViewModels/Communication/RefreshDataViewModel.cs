@@ -16,6 +16,7 @@ internal partial class RefreshDataViewModel : ObservableObject
 {
     private CancellationTokenSource _tokenSource = new();
     private ManualResetEvent _lock = new(true);
+    private SemaphoreSlim _semaphore = new SemaphoreSlim(1, 1);
     private List<Student> _students = new List<Student>() {
         new Student()  {Id = 1,Name = "omar"},
         new Student()  {Id = 2,Name = "dann"},
@@ -29,29 +30,38 @@ internal partial class RefreshDataViewModel : ObservableObject
     };
 
 
-    public RefreshDataViewModel()
+    public async Task PollingAsync()
     {
-        Task.Run(async () =>
+        await Task.Run(async () =>
         {
             while (!_tokenSource.IsCancellationRequested)
             {
-                _lock.WaitOne();
+                //_lock.WaitOne();
+                Count = _semaphore.CurrentCount;
+                await _semaphore.WaitAsync(_tokenSource.Token);
+                Count = _semaphore.CurrentCount;
                 await Application.Current.Dispatcher.Invoke(async () =>
                 {
                     await Refresh();
                     Message = "wait...";
                 });
-                _lock.Set();
+                //_lock.Set();
+                Count = _semaphore.CurrentCount;
+                _semaphore.Release();
+                Count = _semaphore.CurrentCount;
                 await Task.Delay(2000);
                 await Task.Delay(1);
             }
-        });
+        }, _tokenSource.Token);
     }
 
     public ObservableCollection<Student> Students { get; set; } = [];
 
     [ObservableProperty]
     string _message;
+
+    [ObservableProperty]
+    int _count;
 
     [RelayCommand]
     public async Task Refresh()
@@ -60,7 +70,6 @@ internal partial class RefreshDataViewModel : ObservableObject
         {
             Message = "Refresh...";
         });
-        await Task.Delay(1000);
         Clear();
 
         foreach (var student in _students)
@@ -77,22 +86,33 @@ internal partial class RefreshDataViewModel : ObservableObject
     {
         Message = "Clear...";
         Students.Clear();
-
     }
 
     [RelayCommand]
-    public void Stop()
+    public async Task Stop()
     {
         Message = "Stop";
-        //_tokenSource?.Cancel();
-        _lock.Reset();
+        Count = _semaphore.CurrentCount;
+        if (await _semaphore.WaitAsync(TimeSpan.FromSeconds(2)))
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                Message = "Polling task is paused.";
+            });
+        }
+        //_lock.Reset();
+
     }
 
     [RelayCommand]
     public void Restart()
     {
         Message = "Restart";
-        //_tokenSource.TryReset();
-        _lock.Set();
+        Count = _semaphore.CurrentCount;
+        //_tokenSource = new();
+        _semaphore.Release();
+        Count = _semaphore.CurrentCount;
+        PollingAsync();
+        //_lock.Set();
     }
 }
