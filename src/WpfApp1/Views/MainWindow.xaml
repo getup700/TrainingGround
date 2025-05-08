@@ -11,31 +11,31 @@
            d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}"
            prism:ViewModelLocator.AutoWireViewModel="True"
            NonClientAreaBackground="Transparent"
+           WindowStartupLocation="Manual"
            mc:Ignorable="d"
            Title="MainWindow"
            Height="450"
            Width="800">
-    <hc:Window.Resources>
-
-    </hc:Window.Resources>
-    <StackPanel>
+    <hc:Window.Resources></hc:Window.Resources>
+    <DockPanel>
         <TabControl x:Name="tab"
                     Margin="10"
+                    DockPanel.Dock="Top"
                     Style="{StaticResource TabControlCapsuleSolid}">
             <TabItem Header="共享内存"
-                     Tag="SharedDataView">
-            </TabItem>
+                     Tag="SharedDataView"></TabItem>
             <TabItem Header="队列"
-                     Tag="MessageQueueView">
-            </TabItem>
+                     Tag="MessageQueueView"></TabItem>
             <TabItem Header="管道"
-                     Tag="PipeStreamView">
-            </TabItem>
+                     Tag="PipeStreamView"></TabItem>
             <TabItem Header="委托"
-                     Tag="DelegateView">
-            </TabItem>
+                     Tag="DelegateView"></TabItem>
             <TabItem Header="数据"
                      Tag="RefreshDataView"></TabItem>
+            <TabItem Header="Sugar大舞台"
+                     Tag="SqlSugarStageView"></TabItem>
+            <TabItem Header="EFCore"
+                     Tag="EFCoreView"></TabItem>
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
                     <i:InvokeCommandAction Command="{Binding RouteCommand}"
@@ -44,5 +44,5 @@
             </i:Interaction.Triggers>
         </TabControl>
         <ContentControl prism:RegionManager.RegionName="MainRegion" />
-    </StackPanel>
+    </DockPanel>
 </hc:Window>

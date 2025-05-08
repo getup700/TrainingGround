@@ -11,6 +11,8 @@ using WpfApp1.Views;
 using WpfApp1.Views.Communication;
 using WpfApp1.ViewModels.Communication;
 using WpfApp1.Services;
+using SqlSugar;
+using Microsoft.EntityFrameworkCore;
 
 namespace WpfApp1;
 
@@ -20,8 +22,8 @@ namespace WpfApp1;
 public partial class App : PrismApplication
 {
     private IHost _host;
-    
-  public static IContainerProvider Provider { get;private set; } 
+
+    public static IContainerProvider Provider { get; private set; }
 
     protected override Window CreateShell()
     {
@@ -42,6 +44,18 @@ public partial class App : PrismApplication
              .AddHostedService<ReceiveWorker>()
              .AddHostedService<SendWorker>();
 
+        services.AddSingleton<ISqlSugarClient>((pro) => new SqlSugarScope(new ConnectionConfig()
+        {
+            DbType = SqlSugar.DbType.MySql,
+            ConnectionString = "server=39.106.54.114;port=3306;database=sakila;user id=stark;password=260963hzw.;",
+            IsAutoCloseConnection = true,
+        }));
+
+        services.AddDbContext<MySqlDbContext>(options =>
+        {
+            options.UseMySQL("server=39.106.54.114;port=3306;database=sakila;user id=stark;password=260963hzw.;");
+        });
+
         _host = hostBuilder.Build();
 
         _host.StartAsync();
@@ -60,6 +74,7 @@ public partial class App : PrismApplication
                             //.WithoutFastExpressionCompiler()
                             .WithFactorySelector(Rules.SelectLastRegisteredFactory());
     }
+
     protected override void RegisterTypes(IContainerRegistry containerRegistry)
     {
         containerRegistry.RegisterForNavigation<SharedDataView, SharedDataViewModel>();
@@ -67,6 +82,8 @@ public partial class App : PrismApplication
         containerRegistry.RegisterForNavigation<PipeStreamView, PipeStreamViewModel>();
         containerRegistry.RegisterForNavigation<DelegateView, DelegateViewModel>();
         containerRegistry.RegisterForNavigation<RefreshDataView, RefreshDataViewModel>();
+        containerRegistry.RegisterForNavigation<SqlSugarStageView, SqlSugarStageViewModel>();
+        containerRegistry.RegisterForNavigation<EFCoreView, EFCoreViewModel>();
 
         containerRegistry.RegisterSingleton<IConsoleStrategy, HelloConsoleStrategy>("hellow");
         containerRegistry.RegisterSingleton<IConsoleStrategy, HiConsoleStrategy>("hi");
