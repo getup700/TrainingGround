@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.DependencyInjection;
+using System.IO.Pipes;
+using System.IO;
 using WpfApp1.Services;
 
 namespace WpfApp1.ViewModels.Communication;
@@ -23,6 +25,7 @@ internal partial class PipeStreamViewModel : ObservableObject
         //g了
         _helloStrategy = App.Provider.Resolve<IConsoleStrategy>("hello");
         _hiStrategy = App.Provider.Resolve<IConsoleStrategy>("hi");
+
     }
 
 

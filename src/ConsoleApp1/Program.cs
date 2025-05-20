@@ -1,12 +1,21 @@
 ﻿using System.Reflection.PortableExecutable;
 using System.Threading.Tasks;
 
-var service = new MyService();
-service.Start();
-Thread.Sleep(3000);
-service.Stop();
+var list = new List<string>() { "dsdfsdaf" };
 
-Thread.Sleep(1000);
+var list2 = Update(list);
+
+static IEnumerable<string> Update(IEnumerable<string> list)
+{
+    return list;
+}
+
+//var service = new MyService();
+//service.Start();
+//Thread.Sleep(3000);
+//service.Stop();
+
+//Thread.Sleep(1000);
 
 class MyService
 {

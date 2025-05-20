@@ -36,6 +36,8 @@
                      Tag="SqlSugarStageView"></TabItem>
             <TabItem Header="EFCore"
                      Tag="EFCoreView"></TabItem>
+            <TabItem Header="HandyControl"
+                     Tag="HandyControlView"></TabItem>
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
                     <i:InvokeCommandAction Command="{Binding RouteCommand}"
