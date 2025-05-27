@@ -25,4 +25,41 @@ internal partial class HandyControlViewModel:ObservableObject
         });
         th.Start();
     }
+
+    [RelayCommand]
+    public void Success()
+    {
+        Growl.Success("Success", "Success");
+    }
+
+    [RelayCommand]
+    public void Info()
+    {
+        Growl.Info("Info", "Success");
+    }
+
+    [RelayCommand]
+    public void Error()
+    {
+        Growl.Error("error", "Error");
+    }
+
+    [RelayCommand]
+    public void Warning()
+    {
+        Growl.Warning("Warning", "Error");
+    }
+
+    [RelayCommand]
+    public void Fatal()
+    {
+        Growl.Fatal("Fatal", "Error");
+    }
+
+    [RelayCommand]
+    public void Ask()
+    {
+        Growl.Ask("Ask", arg=> !arg, "Error");
+    }
+
 }

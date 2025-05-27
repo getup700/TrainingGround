@@ -1,58 +1,65 @@
-﻿using System.Reflection.PortableExecutable;
-using System.Threading.Tasks;
+﻿using System;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 
-var list = new List<string>() { "dsdfsdaf" };
-
-var list2 = Update(list);
-
-static IEnumerable<string> Update(IEnumerable<string> list)
+public class Logger
 {
-    return list;
+    public static void Log(string message,
+        [System.Runtime.CompilerServices.CallerFilePath] string filePath = "")
+    {
+        var watcher = new Stopwatch();
+        watcher.Start();
+
+        throw new Exception(message);
+        //var type = Assembly.GetExecutingAssembly()
+        //   .GetTypes()
+        //   .FirstOrDefault(t => t.FullName.Contains(Path.GetFileNameWithoutExtension(filePath)));
+        watcher.Stop();
+        Console.WriteLine($"[{filePath}] {message}\n{watcher.ElapsedMilliseconds}");
+    }
+
+    public static void Log2(string message)
+    {
+        throw new Exception(message);
+        var watcher = new Stopwatch();
+        watcher.Start();
+        var stackTrace = new StackTrace(true);
+        var callingFrame = stackTrace.GetFrame(1);
+        var callingClass = callingFrame.GetMethod().DeclaringType;
+        watcher.Stop();
+        Console.WriteLine($"[{callingClass?.Name}] {message}\n{watcher.ElapsedMilliseconds}");
+    }
 }
 
-//var service = new MyService();
-//service.Start();
-//Thread.Sleep(3000);
-//service.Stop();
-
-//Thread.Sleep(1000);
-
-class MyService
+public class SampleClass1
 {
-    volatile bool _isRunning;
-    Thread _thread;
-
-    public void Stop()
+    public void DoSomething()
     {
-        Console.WriteLine("Stop service");
-        _isRunning = false;
+        Logger.Log2("Log2 This is a log message from SampleClass1");
+        Logger.Log("Log This is a log message from SampleClass1");
     }
+}
 
-    public void Start()
+public class SampleClass2
+{
+    public void DoAnotherThing()
     {
-        Console.WriteLine("Start service");
-        _thread = new Thread(() =>
-        {
-            _isRunning = true;
-            ThreadJob();
-        });
-        _thread.IsBackground = true;
-        _thread.Start();
+        Logger.Log2("Log2 This is a log message from SampleClass2");
+        Logger.Log("Log This is a log message from SampleClass2");
     }
+}
 
-    void ThreadJob()
+class Program
+{
+    static void Main()
     {
-        while (_isRunning)
-        {
-            Console.WriteLine("working...");
-            Process();
-        }
-    }
+        var sample1 = new SampleClass1();
+        sample1.DoSomething();
 
+        var sample2 = new SampleClass2();
+        sample2.DoAnotherThing();
 
-    void Process()
-    {
-        Thread.Sleep(3000);
-
+     new SampleClass1().DoSomething();
     }
 }
