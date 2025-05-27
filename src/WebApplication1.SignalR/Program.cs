@@ -1,3 +1,6 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using WebApplication1.SignalR.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,9 +9,29 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSignalR();
 
 builder.Logging.AddConsole();
-
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new()
+    {
+        ValidateIssuer = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidateAudience = true,
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]??"")),
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.FromSeconds(30),
+        RequireExpirationTime = true,
+    };
+});
 var app = builder.Build();
 
+app.UseAuthentication();
+app.UseAuthorization();
 //// Configure the HTTP request pipeline.
 //if (!app.Environment.IsDevelopment())
 //{

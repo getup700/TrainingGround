@@ -37,6 +37,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Source", "src\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Target", "src\ConsoleApp.Target\ConsoleApp.Target.csproj", "{6D4E297D-A0ED-482C-A086-AB977E1BBF35}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NamedPipe", "NamedPipe", "{A3CE62F3-AF03-4681-B766-69B3D2BD80A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Source", "src\ConsoleApp.Source\ConsoleApp.Source.csproj", "{3B9A73C8-4CE8-4282-9CCF-06DE0515304A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Target", "src\ConsoleApp.Target\ConsoleApp.Target.csproj", "{6D4E297D-A0ED-482C-A086-AB977E1BBF35}"
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
