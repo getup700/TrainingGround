@@ -85,6 +85,7 @@ public partial class App : PrismApplication
         containerRegistry.RegisterForNavigation<SqlSugarStageView, SqlSugarStageViewModel>();
         containerRegistry.RegisterForNavigation<EFCoreView, EFCoreViewModel>();
         containerRegistry.RegisterForNavigation<HandyControlView, HandyControlViewModel>();
+        containerRegistry.RegisterForNavigation<CustomControlView>();
 
         containerRegistry.RegisterSingleton<IConsoleStrategy, HelloConsoleStrategy>("hellow");
         containerRegistry.RegisterSingleton<IConsoleStrategy, HiConsoleStrategy>("hi");

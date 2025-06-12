@@ -46,13 +46,15 @@ internal partial class SqlSugarStageViewModel : ObservableObject
     string _state;
 
     [RelayCommand]
-    void Refresh()
+    async Task Refresh()
     {
-        ActorList.Clear();
-        _db.Queryable<Actor>()
-            .Take(100)
-            .ToList()
-            .ForEach(x => ActorList.Add(x));
+
+        TotalConnection = (await GetActorsAsync()).Count;
+        //ActorList.Clear();
+        //_db.Queryable<Actor>()
+        //    .Take(100)
+        //    .ToList()
+        //    .ForEach(x => ActorList.Add(x));
         //Task.Run(async () =>
         //{
         //    while (true)
@@ -62,7 +64,6 @@ internal partial class SqlSugarStageViewModel : ObservableObject
         //        Clients.Add(db);
         //        _semaphore.Release();
         //        await Task.Delay(1);
-
         //    }
         //});
         //Task.Run(async () =>
@@ -91,18 +92,25 @@ internal partial class SqlSugarStageViewModel : ObservableObject
     [RelayCommand]
     void ReadSugar()
     {
-        FirstState = _db.Ado.Connection.State.ToString();
-        _db.Queryable<Actor>()
+        //FirstState = _db.Ado.Connection.State.ToString();
+        //_db.Queryable<Actor>()
+        //    .Where(x => !x.FirstName.Contains("1"))
+        //    .Select(x => x.FirstName)
+        //    .ToList()
+        //    .ForEach(x =>
+        //    {
+        //        State = _db.Ado.Connection.State.ToString();
+        //    });
+        //LastState = _db.Ado.Connection.State.ToString();
+
+
+    }
+
+    public Task<List<Actor>> GetActorsAsync()
+    {
+        return _db.Queryable<Actor>()
             .Where(x => !x.FirstName.Contains("1"))
-            .Select(x => x.FirstName)
-            .ToList()
-            .ForEach(x =>
-            {
-                State = _db.Ado.Connection.State.ToString();
-            });
-        LastState = _db.Ado.Connection.State.ToString();
-
-
+            .ToListAsync();
     }
 
 

@@ -38,6 +38,8 @@
                      Tag="EFCoreView"></TabItem>
             <TabItem Header="HandyControl"
                      Tag="HandyControlView"></TabItem>
+            <TabItem Header="CustomControl"
+                     Tag="CustomControlView" />
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
                     <i:InvokeCommandAction Command="{Binding RouteCommand}"

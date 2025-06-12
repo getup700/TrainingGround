@@ -37,12 +37,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Source", "src\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Target", "src\ConsoleApp.Target\ConsoleApp.Target.csproj", "{6D4E297D-A0ED-482C-A086-AB977E1BBF35}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NamedPipe", "NamedPipe", "{A3CE62F3-AF03-4681-B766-69B3D2BD80A1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NamedPipe", "NamedPipe", "{1CDD51C4-4502-4E56-8BB7-AC36E1A84A04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Source", "src\ConsoleApp.Source\ConsoleApp.Source.csproj", "{3B9A73C8-4CE8-4282-9CCF-06DE0515304A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp2", "src\WpfApp2\WpfApp2.csproj", "{7561572F-647E-4369-9BA5-5A9D3F8DF736}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Target", "src\ConsoleApp.Target\ConsoleApp.Target.csproj", "{6D4E297D-A0ED-482C-A086-AB977E1BBF35}"
-
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +99,10 @@ Global
 		{6D4E297D-A0ED-482C-A086-AB977E1BBF35}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D4E297D-A0ED-482C-A086-AB977E1BBF35}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D4E297D-A0ED-482C-A086-AB977E1BBF35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7561572F-647E-4369-9BA5-5A9D3F8DF736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7561572F-647E-4369-9BA5-5A9D3F8DF736}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7561572F-647E-4369-9BA5-5A9D3F8DF736}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7561572F-647E-4369-9BA5-5A9D3F8DF736}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -121,6 +123,7 @@ Global
 		{A3CE62F3-AF03-4681-B766-69B3D2BD80A1} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{3B9A73C8-4CE8-4282-9CCF-06DE0515304A} = {A3CE62F3-AF03-4681-B766-69B3D2BD80A1}
 		{6D4E297D-A0ED-482C-A086-AB977E1BBF35} = {A3CE62F3-AF03-4681-B766-69B3D2BD80A1}
+		{7561572F-647E-4369-9BA5-5A9D3F8DF736} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3A5EC81-361F-4D7C-99DE-0071F629A496}

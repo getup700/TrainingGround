@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFramework>net7.0-windows</TargetFramework>
+		<TargetFramework>net9.0-windows</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<LangVersion>preview</LangVersion>
@@ -19,12 +19,6 @@
 		<PackageReference Include="Prism.DryIoc" Version="9.0.537" />
 		<PackageReference Include="Prism.Wpf" Version="9.0.537" />
 		<PackageReference Include="SqlSugarCore" Version="5.1.4.152" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Reference Include="System.Messaging">
-	    <HintPath>C:\Windows\WinSxS\amd64_system.messaging_b03f5f7f11d50a3a_4.0.15805.0_none_88b7d1930ecb1012\System.Messaging.dll</HintPath>
-	  </Reference>
 	</ItemGroup>
 
 </Project>
