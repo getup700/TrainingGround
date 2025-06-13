@@ -48,16 +48,12 @@ internal partial class SqlSugarStageViewModel : ObservableObject
     [RelayCommand]
     async Task Refresh()
     {
-<<<<<<< Updated upstream
-
-        TotalConnection = (await GetActorsAsync()).Count;
-=======
         var thread = new Thread(() => ValidConnection = (int)Random.Shared.NextInt64());
         //thread.IsBackground = true;
         thread.Start();
         //ValidConnection = await GetCount();
         //TotalConnection = ValidConnection + 1;
->>>>>>> Stashed changes
+
         //ActorList.Clear();
         //_db.Queryable<Actor>()
         //    .Take(100)

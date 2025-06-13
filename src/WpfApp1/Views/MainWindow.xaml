@@ -39,11 +39,7 @@
             <TabItem Header="HandyControl"
                      Tag="HandyControlView"></TabItem>
             <TabItem Header="CustomControl"
-<<<<<<< Updated upstream
-                     Tag="CustomControlView" />
-=======
                      Tag="CustomControlView"></TabItem>
->>>>>>> Stashed changes
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
                     <i:InvokeCommandAction Command="{Binding RouteCommand}"
