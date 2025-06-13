@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         xmlns:uc="clr-namespace:WpfApp2.UserControls"
+        xmlns:cc="clr-namespace:WpfApp2.CustomControls"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="450"
@@ -29,5 +30,6 @@
             </Calendar.CalendarDayButtonStyle>
         </Calendar>
         <uc:NumericUpDown />
+        <cc:NumUpDown Height="100"/>
     </StackPanel>
 </Window>
