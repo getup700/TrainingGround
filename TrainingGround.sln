@@ -37,15 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Source", "src\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Target", "src\ConsoleApp.Target\ConsoleApp.Target.csproj", "{6D4E297D-A0ED-482C-A086-AB977E1BBF35}"
 EndProject
-<<<<<<< Updated upstream
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NamedPipe", "NamedPipe", "{1CDD51C4-4502-4E56-8BB7-AC36E1A84A04}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp2", "src\WpfApp2\WpfApp2.csproj", "{7561572F-647E-4369-9BA5-5A9D3F8DF736}"
 EndProject
-=======
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NamedPipe", "NamedPipe", "{83D412B3-6023-458E-916D-2857551DCCD8}"
-EndProject
->>>>>>> Stashed changes
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

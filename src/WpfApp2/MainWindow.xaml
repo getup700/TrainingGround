@@ -8,7 +8,7 @@
         xmlns:cc="clr-namespace:WpfApp2.CustomControls"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="450"
+        Height="auto"
         Width="800">
     <StackPanel>
         <Calendar>
@@ -30,6 +30,47 @@
             </Calendar.CalendarDayButtonStyle>
         </Calendar>
         <uc:NumericUpDown />
-        <cc:NumUpDown Height="100"/>
+        <cc:NumUpDown Height="100" />
+        <Grid x:Name="baseGrid"
+              cc:TimeButton.ReportTime="ReportTimeHandler"
+              Margin="20 0">
+            <StackPanel x:Name="stackPanel"
+                        cc:TimeButton.ReportTime="ReportTimeHandler"
+                        Margin="20 0">
+                <DockPanel x:Name="dockPanel"
+                           cc:TimeButton.ReportTime="ReportTimeHandler"
+                           Margin="20 0">
+                    <Canvas x:Name="canvas"
+                            cc:TimeButton.ReportTime="ReportTimeHandler"
+                            Margin="20 0">
+                        <Border x:Name="border"
+                                cc:TimeButton.ReportTime="ReportTimeHandler"
+                                Margin="20 0">
+                            <DockPanel x:Name="dockPanel2"
+                                       cc:TimeButton.ReportTime="ReportTimeHandler"
+                                       Margin="20 0">
+                                <cc:TimeButton x:Name="timeButton"
+                                               DockPanel.Dock="Left"
+                                               Content="Report" />
+                                <ListBox x:Name="listBox"
+                                         Margin="0">
+                                    <!--<ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="{Binding ClickTime}"
+                                                       ContentStringFormat="HH:mm:ss.fff" />
+                                                <Label Content="{Binding Source}"
+                                                       ContentStringFormat="Name" />
+                                                <Label Content="{Binding OriginalSource.Name}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>-->
+                                </ListBox>
+                            </DockPanel>
+                        </Border>
+                    </Canvas>
+                </DockPanel>
+            </StackPanel>
+        </Grid>
     </StackPanel>
 </Window>

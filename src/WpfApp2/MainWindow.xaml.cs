@@ -20,5 +20,15 @@ namespace WpfApp2
         {
             InitializeComponent();
         }
+
+        private void ReportTimeHandler(object sender, CustomControls.ReportTimeEventArgs e)
+        {
+            var senderName = (sender as FrameworkElement)?.Name;
+            if(senderName == "dockPanel")
+            {
+                e.Handled = true;
+            }
+            listBox.Items.Add($"Report time: {e.ClickTime:HH-mm-ss:fff}, Sender: {(sender as FrameworkElement)?.Name}");
+        }
     }
 }
