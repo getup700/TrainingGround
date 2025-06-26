@@ -40,6 +40,8 @@
                      Tag="HandyControlView"></TabItem>
             <TabItem Header="CustomControl"
                      Tag="CustomControlView"></TabItem>
+            <TabItem Header="EntitySelector"
+                     Tag="EntitySelectorView"></TabItem>
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
                     <i:InvokeCommandAction Command="{Binding RouteCommand}"

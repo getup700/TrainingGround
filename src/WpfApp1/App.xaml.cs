@@ -13,6 +13,7 @@ using WpfApp1.ViewModels.Communication;
 using WpfApp1.Services;
 using SqlSugar;
 using Microsoft.EntityFrameworkCore;
+using WpfApp1.Modules.Selectors;
 
 namespace WpfApp1;
 
@@ -86,6 +87,8 @@ public partial class App : PrismApplication
         containerRegistry.RegisterForNavigation<EFCoreView, EFCoreViewModel>();
         containerRegistry.RegisterForNavigation<HandyControlView, HandyControlViewModel>();
         containerRegistry.RegisterForNavigation<CustomControlView>();
+
+        containerRegistry.RegisterForNavigation<EntitySelectorView, EntitySelectorViewModel>();
 
         containerRegistry.RegisterSingleton<IConsoleStrategy, HelloConsoleStrategy>("hellow");
         containerRegistry.RegisterSingleton<IConsoleStrategy, HiConsoleStrategy>("hi");
