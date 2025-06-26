@@ -94,11 +94,17 @@
                         Margin="10"
                         Grid.Row="1" />-->
         <ScrollViewer Grid.Row="1"
+                      BorderBrush="Red"
+                      Background="Yellow"
+                      BorderThickness="20"
+                      Margin="10"
                       HorizontalScrollBarVisibility="Disabled"
                       VerticalScrollBarVisibility="Auto"
-                      PanningMode="VerticalOnly"
-                      Margin="10">
+                      PanningMode="Both">
             <ItemsControl ItemsSource="{Binding Entities}"
+                          Margin="3"
+                          BorderThickness="5"
+                          BorderBrush="Black"
                           ItemTemplateSelector="{StaticResource EntityTemplateSelector}">
                 <!--<ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
