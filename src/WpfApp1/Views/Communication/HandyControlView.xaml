@@ -11,10 +11,10 @@
              d:DesignHeight="450"
              d:DesignWidth="800">
     <StackPanel>
-        <StackPanel Height="200"
+        <StackPanel Height="20"
                    Background="Green"
                    hc:Growl.Token="Success" />
-        <StackPanel Height="200"
+        <StackPanel Height="20"
                    Background="Red"
                    hc:Growl.Token="Error" />
         <Button Content="SuccessCommand"

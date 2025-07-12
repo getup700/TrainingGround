@@ -8,69 +8,17 @@
         xmlns:cc="clr-namespace:WpfApp2.CustomControls"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="auto"
-        Width="800">
-    <StackPanel>
-        <Calendar>
-            <Calendar.CalendarDayButtonStyle>
-                <Style TargetType="CalendarDayButton">
-                    <Setter Property="Width"
-                            Value="100" />
-                    <Setter Property="ContentTemplate">
-                        <Setter.Value>
-                            <DataTemplate>
-                                <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="{Binding }" />
-                                    <TextBlock Text="{Binding Converter={StaticResource FriendlyDateConverter}}" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </Calendar.CalendarDayButtonStyle>
-        </Calendar>
-        <uc:NumericUpDown />
-        <cc:NumUpDown Height="100" />
-        <Grid x:Name="baseGrid"
-              cc:TimeButton.ReportTime="ReportTimeHandler"
-              Margin="20 0">
-            <StackPanel x:Name="stackPanel"
-                        cc:TimeButton.ReportTime="ReportTimeHandler"
-                        Margin="20 0">
-                <DockPanel x:Name="dockPanel"
-                           cc:TimeButton.ReportTime="ReportTimeHandler"
-                           Margin="20 0">
-                    <Canvas x:Name="canvas"
-                            cc:TimeButton.ReportTime="ReportTimeHandler"
-                            Margin="20 0">
-                        <Border x:Name="border"
-                                cc:TimeButton.ReportTime="ReportTimeHandler"
-                                Margin="20 0">
-                            <DockPanel x:Name="dockPanel2"
-                                       cc:TimeButton.ReportTime="ReportTimeHandler"
-                                       Margin="20 0">
-                                <cc:TimeButton x:Name="timeButton"
-                                               DockPanel.Dock="Left"
-                                               Content="Report" />
-                                <ListBox x:Name="listBox"
-                                         Margin="0">
-                                    <!--<ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <Label Content="{Binding ClickTime}"
-                                                       ContentStringFormat="HH:mm:ss.fff" />
-                                                <Label Content="{Binding Source}"
-                                                       ContentStringFormat="Name" />
-                                                <Label Content="{Binding OriginalSource.Name}" />
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>-->
-                                </ListBox>
-                            </DockPanel>
-                        </Border>
-                    </Canvas>
-                </DockPanel>
-            </StackPanel>
-        </Grid>
-    </StackPanel>
+        Height="960"
+        Width="540">
+    <!-- 定义3D按钮样式 -->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+        <ContentControl x:Name="ContentRegion"
+                        Grid.Column="0" />
+        <ListBox x:Name="ListBox"
+                 Grid.Column="1" />
+    </Grid>
 </Window>

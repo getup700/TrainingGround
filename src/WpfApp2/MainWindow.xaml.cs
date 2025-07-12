@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp2.Views;
 
 namespace WpfApp2
 {
@@ -16,19 +17,52 @@ namespace WpfApp2
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<string> pages = new()
+        {
+            "GaussianBlur",
+            "Animation",
+            "ComboBox",
+            "Slide"
+        };
+
         public MainWindow()
         {
             InitializeComponent();
+            this.ListBox.ItemsSource = pages;
+            this.ListBox.SelectionChanged += ListBox_SelectionChanged;
         }
 
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var key = e.AddedItems[0] as string;
+            var index = pages.IndexOf(key);
+            switch (index)
+            {
+                case 0:
+                    this.ContentRegion.Content = new GaussianBlurView();
+                    break;
+                case 1:
+                    this.ContentRegion.Content = new AnimationView();
+                    break;
+                case 2:
+                    this.ContentRegion.Content = new ComboBoxView();
+                    break;
+                case 3:
+                    this.ContentRegion.Content = new SlideView();
+                    break;
+                default:
+                    break;
+            }
+        }
         private void ReportTimeHandler(object sender, CustomControls.ReportTimeEventArgs e)
         {
             var senderName = (sender as FrameworkElement)?.Name;
-            if(senderName == "dockPanel")
+            if (senderName == "dockPanel")
             {
                 e.Handled = true;
             }
-            listBox.Items.Add($"Report time: {e.ClickTime:HH-mm-ss:fff}, Sender: {(sender as FrameworkElement)?.Name}");
+            //listBox.Items.Add($"Report time: {e.ClickTime:HH-mm-ss:fff}, Sender: {(sender as FrameworkElement)?.Name}");
         }
+
     }
 }

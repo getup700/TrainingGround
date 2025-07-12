@@ -1,9 +1,8 @@
-<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:cc="clr-namespace:WpfApp2.CustomControls"
-    xmlns:local="clr-namespace:WpfApp2">
-    <Style TargetType="{x:Type cc:HolidayControl}">
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cc="clr-namespace:WpfApp2.CustomControls"
+                    xmlns:local="clr-namespace:WpfApp2">
+    <!--<Style TargetType="{x:Type cc:HolidayControl}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type cc:HolidayControl}">
@@ -38,6 +37,87 @@
                                       Margin="2"
                                       Content="Up" />
                     </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+    <Style TargetType="{x:Type Button}"
+           x:Key="Enhanced3DButtonStyle">
+        <Setter Property="Foreground"
+                Value="Black" />
+        <Setter Property="FontSize"
+                Value="14" />
+        <Setter Property="Padding"
+                Value="8,4" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="ButtonBody"
+                                CornerRadius="5"
+                                Background="#FFDDDDDD"
+                                BorderBrush="Black"
+                                BorderThickness="1"
+                                Margin="0,0,0,3">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                        <Rectangle x:Name="ButtonShadow"
+                                   RadiusX="5"
+                                   RadiusY="5"
+                                   Fill="#44000000"
+                                   Margin="3,3,0,0">
+                            <Rectangle.Effect>
+                                <BlurEffect Radius="3" />
+                            </Rectangle.Effect>
+                        </Rectangle>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="ButtonBody"
+                                    Property="Background"
+                                    Value="#FFEEEEEE" />
+                            <Setter TargetName="ButtonBody"
+                                    Property="BorderBrush"
+                                    Value="#FF666666" />
+                            <Setter TargetName="ButtonShadow"
+                                    Property="Margin"
+                                    Value="4,4,0,0" />
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="ButtonBody"
+                                    Property="Background"
+                                    Value="#FFCCCCCC" />
+                            <Setter TargetName="ButtonBody"
+                                    Property="BorderBrush"
+                                    Value="#FF444444" />
+                            <Setter TargetName="ButtonBody"
+                                    Property="Margin"
+                                    Value="0,0,0,1" />
+                            <Setter TargetName="ButtonShadow"
+                                    Property="Margin"
+                                    Value="5,5,0,0" />
+                            <Setter TargetName="ButtonShadow"
+                                    Property="Opacity"
+                                    Value="0.3" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter TargetName="ButtonBody"
+                                    Property="Background"
+                                    Value="#FFEEEEEE" />
+                            <Setter TargetName="ButtonBody"
+                                    Property="BorderBrush"
+                                    Value="#FFAAAAAA" />
+                            <Setter TargetName="ButtonShadow"
+                                    Property="Opacity"
+                                    Value="0.2" />
+                            <Setter Property="Foreground"
+                                    Value="#FFAAAAAA" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

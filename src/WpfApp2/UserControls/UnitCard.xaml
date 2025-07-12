@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="WpfApp2.UserControls.UnitCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:WpfApp2.UserControls"
+             mc:Ignorable="d"
+             x:Name="main">
+    <UserControl.Resources>
+        <Style TargetType="Border">
+            <Setter Property="Background"
+                    Value="{Binding ElementName=main, Path=BackColor}" />
+            <Style.Triggers>
+                <Trigger Property="IsEnabled"
+                         Value="False">
+                    <Setter Property="Background"
+                            Value="Gray" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Border Height="100"
+                Width="80"
+                CornerRadius="10">
+            <TextBlock Text="Hello" />
+        </Border>
+    </Grid>
+</UserControl>

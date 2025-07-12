@@ -10,6 +10,30 @@
                 <ResourceDictionary Source="/Themes/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <converters:FriendlyDateConverter x:Key="FriendlyDateConverter" />
+            <Style x:Key="animation"
+                   TargetType="UserControl">
+                <Style.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <!--<ThicknessAnimation Duration="0:0:.85" Storyboard.TargetProperty="Margin" From="900,0,-900,0" To="0" DecelerationRatio=".9" />-->
+                                    <ThicknessAnimation Duration="0:0:1"
+                                                        Storyboard.TargetProperty="Margin"
+                                                        From="-50,0,50,0"
+                                                        To="0"
+                                                        DecelerationRatio=".9" />
+                                    <DoubleAnimation Duration="0:0:1"
+                                                     Storyboard.TargetProperty="Opacity"
+                                                     From="0"
+                                                     To="1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </Style.Triggers>
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
