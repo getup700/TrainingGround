@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Utils;
 
 namespace WpfApp1.Views.Communication
 {
@@ -23,6 +24,24 @@ namespace WpfApp1.Views.Communication
         public SharedDataView()
         {
             InitializeComponent();
+
+            BindUtil.SetBinding(this.head, "string1");
+            BindUtil.SetBinding(this.middle, "string2");
+            BindUtil.SetBinding(this.tail, "string3");
+
+            this.Loaded += SharedDataView_Loaded;
+            this.updateBtn.Click += UpdateBtn_Click;
+        }
+
+        private void UpdateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Resources["string3"] = $"不一般的字符串{DateTime.Now}";
+        }
+
+        private async void SharedDataView_Loaded(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(3000);
+            Application.Current.Resources["string3"] = "不一般的字符串";
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿<prism:PrismApplication x:Class="WpfApp1.App"
                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:sys="clr-namespace:System;assembly=mscorlib"
                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                         xmlns:local="clr-namespace:WpfApp1"
                         xmlns:converters="clr-namespace:WpfApp1.Converters"
@@ -10,7 +11,10 @@
 				<ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
 				<ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
 			</ResourceDictionary.MergedDictionaries>
-			<converters:FriendlyDateConverter x:Key="FriendlyDateConverter" />
-		</ResourceDictionary>
+            <converters:FriendlyDateConverter x:Key="FriendlyDateConverter" />
+            <sys:String x:Key="string1">这是</sys:String>
+            <sys:String x:Key="string2">一个</sys:String>
+            <sys:String x:Key="string3">字符串</sys:String>
+        </ResourceDictionary>
 	</prism:PrismApplication.Resources>
 </prism:PrismApplication>

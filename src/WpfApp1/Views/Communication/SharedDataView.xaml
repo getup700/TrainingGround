@@ -10,6 +10,15 @@
              d:DesignHeight="450"
              d:DesignWidth="800">
     <StackPanel>
+        <TextBlock x:Name="textBlock">
+            <Run x:Name="head"
+                 Foreground="Red" />
+            <Run x:Name="middle"
+                 Foreground="Blue" />
+            <Run x:Name="tail"
+             Foreground="Green" /></TextBlock>
+        <Button x:Name="updateBtn"
+                Content="Update Resource" />
         <Label Content="{Binding Sum,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
         <Label Content="{Binding Sum}" />
         <Label Content="{Binding Numbers.Count}" />
