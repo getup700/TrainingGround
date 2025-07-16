@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -33,6 +34,10 @@ namespace WpfApp2.Views
         private void ComboBoxView_Loaded(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("comboBox loaded");
+
+
+            Storyboard storyboard = (Storyboard)FindResource("translationStoryboard");
+            storyboard.Begin();
         }
 
         private void StackPanel_Loaded(object sender, RoutedEventArgs e)

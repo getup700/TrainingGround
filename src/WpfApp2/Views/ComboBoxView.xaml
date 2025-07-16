@@ -8,6 +8,7 @@
              xmlns:vm="clr-namespace:WpfApp2.ViewModels"
              xmlns:uc="clr-namespace:WpfApp2.UserControls"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
              mc:Ignorable="d"
              Style="{StaticResource animation}"
              d:DesignHeight="450"
@@ -16,7 +17,13 @@
         <vm:ComboBoxViewModel />
     </UserControl.DataContext>
     <UserControl.Resources>
-
+        <Storyboard x:Key="translationStoryboard">
+            <DoubleAnimation Storyboard.TargetName="imageTranslateTransform"
+                             Storyboard.TargetProperty="X"
+                             From="0"
+                             To="200"
+                             Duration="0:0:5"/>
+        </Storyboard>
     </UserControl.Resources>
     <StackPanel x:Name="stackPanel"
                 Background="Red">
@@ -28,6 +35,19 @@
                   IsSynchronizedWithCurrentItem="True"></ComboBox>
         <Button x:Name="button"
                 Content="ChangeItem" />
-        <uc:UnitCard BackColor="Blue"/>
+        <uc:UnitCard BackColor="Blue" />
+        <StackPanel Orientation="Horizontal">
+            <Image gif:ImageBehavior.AnimatedSource="/Resources/maomeme.gif"
+                   Width="100"
+                   Height="100">
+                <Image.RenderTransform>
+                    <TranslateTransform x:Name="imageTranslateTransform" />
+                </Image.RenderTransform>
+            </Image>
+            <Border Background="Blue"
+                    Width="100"
+                    Height="100" />
+        </StackPanel>
+
     </StackPanel>
 </UserControl>

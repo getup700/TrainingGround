@@ -10,16 +10,19 @@
 
   <ItemGroup>
     <None Remove="Resources\desktop.png" />
+    <None Remove="Resources\maomeme.gif" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\desktop.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\maomeme.gif" />
   </ItemGroup>
 
   <ItemGroup>
