@@ -9,7 +9,8 @@
              d:DesignHeight="450"
              d:DesignWidth="800">
     <Grid Background="Black">
-        <TextBlock HorizontalAlignment="Center"
+        <TextBlock x:Name="textBlock"
+                   HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontFamily="SegoeUI"
                    FontSize="100"
@@ -34,19 +35,29 @@
                     <BeginStoryboard>
                         <Storyboard>
                             <!-- 中心点水平移动动画 -->
-                            <PointAnimation RepeatBehavior="Forever"
+                            <PointAnimation RepeatBehavior="1"
                                             Storyboard.TargetName="ShimmerBrush"
                                             Storyboard.TargetProperty="Center"
                                             From="-2,.5"
                                             To="3,.5"
-                                            Duration="0:0:3.3" />
+                                            Duration="0:0:3.3"
+                                            FillBehavior="HoldEnd" />
                             <!-- 渐变原点同步移动（增强光源真实感） -->
-                            <PointAnimation RepeatBehavior="Forever"
+                            <PointAnimation RepeatBehavior="1"
                                             Storyboard.TargetName="ShimmerBrush"
                                             Storyboard.TargetProperty="GradientOrigin"
                                             From="-2,.5"
                                             To="3,.5"
-                                            Duration="0:0:3.3" />
+                                            Duration="0:0:3.3"
+                                            FillBehavior="HoldEnd" />
+                            <!--<ColorAnimation Storyboard.TargetName="textBlock"
+                                            Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)"
+                                            From="Black"
+                                            To="Red"
+                                            BeginTime="0:0:0"
+                                            Duration="0:0:3.3"
+                                            RepeatBehavior="Forever"
+                                            FillBehavior="HoldEnd" />-->
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
