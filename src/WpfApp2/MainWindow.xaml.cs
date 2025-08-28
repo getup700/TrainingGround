@@ -22,7 +22,8 @@ namespace WpfApp2
             "GaussianBlur",
             "Animation",
             "ComboBox",
-            "Slide"
+            "Slide",
+            "AnimationText"
         };
 
         public MainWindow()
@@ -49,6 +50,9 @@ namespace WpfApp2
                     break;
                 case 3:
                     this.ContentRegion.Content = new SlideView();
+                    break;
+                case 4:
+                    this.ContentRegion.Content = new AnimationTextView();
                     break;
                 default:
                     break;
