@@ -23,7 +23,8 @@ namespace WpfApp2
             "Animation",
             "ComboBox",
             "Slide",
-            "AnimationText"
+            "AnimationText",
+            "AnimationListBox"
         };
 
         public MainWindow()
@@ -53,6 +54,9 @@ namespace WpfApp2
                     break;
                 case 4:
                     this.ContentRegion.Content = new AnimationTextView();
+                    break;
+                case 5:
+                    this.ContentRegion.Content = new AnimationListBoxView();
                     break;
                 default:
                     break;
