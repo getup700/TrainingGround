@@ -24,7 +24,8 @@ namespace WpfApp2
             "ComboBox",
             "Slide",
             "AnimationText",
-            "AnimationListBox"
+            "AnimationListBox",
+            "Adornor"
         };
 
         public MainWindow()
@@ -57,6 +58,9 @@ namespace WpfApp2
                     break;
                 case 5:
                     this.ContentRegion.Content = new AnimationListBoxView();
+                    break;
+                case 6:
+                    this.ContentRegion.Content = new AdornorView();
                     break;
                 default:
                     break;
