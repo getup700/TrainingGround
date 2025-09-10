@@ -25,7 +25,8 @@ namespace WpfApp2
             "Slide",
             "AnimationText",
             "AnimationListBox",
-            "Adornor"
+            "Adornor",
+            "WaterPipeAnimation"
         };
 
         public MainWindow()
@@ -61,6 +62,9 @@ namespace WpfApp2
                     break;
                 case 6:
                     this.ContentRegion.Content = new AdornorView();
+                    break;
+                case 7:
+                    this.ContentRegion.Content = new WaterPipeAnimationView();
                     break;
                 default:
                     break;
