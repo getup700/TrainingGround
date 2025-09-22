@@ -1,34 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net9.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Resources\desktop.png" />
-    <None Remove="Resources\maomeme.gif" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="Resources\desktop.png" />
+		<None Remove="Resources\maomeme.gif" />
+		<None Remove="Resources\VCG41N1886872183.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
-    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.WinUI.Animations" Version="8.2.250402" />
+		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
+		<PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="Resources\desktop.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\maomeme.gif" />
-  </ItemGroup>
+	<ItemGroup>
+		<Resource Include="Resources\desktop.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\maomeme.gif" />
+		<Resource Include="Resources\VCG41N1886872183.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Properties\Settings.Designer.cs">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Compile>
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Update="Properties\Settings.Designer.cs">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Compile>
+	</ItemGroup>
 
 </Project>

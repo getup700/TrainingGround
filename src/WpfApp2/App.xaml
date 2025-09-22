@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="/Themes/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <converters:FriendlyDateConverter x:Key="FriendlyDateConverter" />
+            <converters:DelayConverter x:Key="DelayConverter"/>
             <Style x:Key="animation"
                    TargetType="UserControl">
                 <Style.Triggers>

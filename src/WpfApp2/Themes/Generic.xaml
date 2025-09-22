@@ -2,6 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:cc="clr-namespace:WpfApp2.CustomControls"
                     xmlns:local="clr-namespace:WpfApp2">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary
+            Source="/CustomControls/GroundGlass.xaml" />
+    </ResourceDictionary.MergedDictionaries>
     <!--<Style TargetType="{x:Type cc:HolidayControl}">
         <Setter Property="Template">
             <Setter.Value>

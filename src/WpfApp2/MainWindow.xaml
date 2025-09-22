@@ -8,8 +8,8 @@
         xmlns:cc="clr-namespace:WpfApp2.CustomControls"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="960"
-        Width="540">
+        Height="500"
+        Width="800">
     <!-- 定义3D按钮样式 -->
     <Grid>
         <Grid.ColumnDefinitions>

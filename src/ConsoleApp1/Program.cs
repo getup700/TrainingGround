@@ -54,12 +54,34 @@ class Program
 {
     static void Main()
     {
-        var sample1 = new SampleClass1();
-        sample1.DoSomething();
+        //   var sample1 = new SampleClass1();
+        //   sample1.DoSomething();
 
-        var sample2 = new SampleClass2();
-        sample2.DoAnotherThing();
+        //   var sample2 = new SampleClass2();
+        //   sample2.DoAnotherThing();
 
-     new SampleClass1().DoSomething();
+        //new SampleClass1().DoSomething();
+
+
+        Action action1 = Run1;
+        action1 += Run2;
+        action1 += Run3;
+        action1 += Run2;
+
+        action1.Invoke();
+       
+    }
+
+    public static void Run1()
+    {
+        Console.WriteLine("111111111");
+    }
+    public static void Run2()
+    {
+        Console.WriteLine("222222222");
+    }
+    public static void Run3()
+    {
+        Console.WriteLine("333333333");
     }
 }

@@ -22,7 +22,11 @@ namespace WpfApp2
             "GaussianBlur",
             "Animation",
             "ComboBox",
-            "Slide"
+            "Slide",
+            "AnimationText",
+            "AnimationListBox",
+            "Adornor",
+            "WaterPipeAnimation"
         };
 
         public MainWindow()
@@ -49,6 +53,18 @@ namespace WpfApp2
                     break;
                 case 3:
                     this.ContentRegion.Content = new SlideView();
+                    break;
+                case 4:
+                    this.ContentRegion.Content = new AnimationTextView();
+                    break;
+                case 5:
+                    this.ContentRegion.Content = new AnimationListBoxView();
+                    break;
+                case 6:
+                    this.ContentRegion.Content = new AdornorView();
+                    break;
+                case 7:
+                    this.ContentRegion.Content = new WaterPipeAnimationView();
                     break;
                 default:
                     break;
