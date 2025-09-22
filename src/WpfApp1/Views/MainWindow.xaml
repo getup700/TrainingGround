@@ -23,7 +23,7 @@
                     DockPanel.Dock="Top"
                     Style="{StaticResource TabControlCapsuleSolid}">
             <TabItem Header="共享内存"
-                     Tag="SharedDataView"></TabItem>
+                     Tag="AxisView"></TabItem>
             <TabItem Header="队列"
                      Tag="MessageQueueView"></TabItem>
             <TabItem Header="管道"

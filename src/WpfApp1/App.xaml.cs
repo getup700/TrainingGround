@@ -87,6 +87,7 @@ public partial class App : PrismApplication
         containerRegistry.RegisterForNavigation<EFCoreView, EFCoreViewModel>();
         containerRegistry.RegisterForNavigation<HandyControlView, HandyControlViewModel>();
         containerRegistry.RegisterForNavigation<CustomControlView>();
+        containerRegistry.RegisterForNavigation<AxisView, AxisViewModel>();
 
         containerRegistry.RegisterForNavigation<EntitySelectorView, EntitySelectorViewModel>();
 
