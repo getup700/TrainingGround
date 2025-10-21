@@ -43,6 +43,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp3", "src\ConsoleA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "src\WebApplication1\WebApplication1.csproj", "{666D1ACF-A1BE-4A9C-8550-9F1E06043E08}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SerialPort", "SerialPort", "{928F47C3-6868-4336-928F-0B0DA27345BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerialCommunication", "src\SerialCommunication\SerialCommunication.csproj", "{3B0FBA4B-3B47-4919-8AB0-D47ECA792C23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +117,10 @@ Global
 		{666D1ACF-A1BE-4A9C-8550-9F1E06043E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{666D1ACF-A1BE-4A9C-8550-9F1E06043E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{666D1ACF-A1BE-4A9C-8550-9F1E06043E08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B0FBA4B-3B47-4919-8AB0-D47ECA792C23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B0FBA4B-3B47-4919-8AB0-D47ECA792C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B0FBA4B-3B47-4919-8AB0-D47ECA792C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B0FBA4B-3B47-4919-8AB0-D47ECA792C23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,6 +144,8 @@ Global
 		{7561572F-647E-4369-9BA5-5A9D3F8DF736} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{48E0C8B6-F1C8-45CD-89E3-B47AB9FC875F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{666D1ACF-A1BE-4A9C-8550-9F1E06043E08} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{928F47C3-6868-4336-928F-0B0DA27345BC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{3B0FBA4B-3B47-4919-8AB0-D47ECA792C23} = {928F47C3-6868-4336-928F-0B0DA27345BC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3A5EC81-361F-4D7C-99DE-0071F629A496}

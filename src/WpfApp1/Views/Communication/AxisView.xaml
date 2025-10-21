@@ -9,147 +9,49 @@
              xmlns:vm="clr-namespace:WpfApp1.ViewModels.Communication"
              d:DesignHeight="450"
              d:DesignWidth="800">
-    <UserControl.Resources>
-        <Style x:Key="RoundThumbStyle"
-               TargetType="{x:Type Thumb}">
-            <Setter Property="SnapsToDevicePixels"
-                    Value="true" />
-            <Setter Property="OverridesDefaultStyle"
-                    Value="true" />
-            <Setter Property="Height"
-                    Value="20" />
-            <Setter Property="Width"
-                    Value="20" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Thumb}">
-                        <Ellipse x:Name="ellipse"
-                                 Fill="White"
-                                 Stroke="RoyalBlue"
-                                 StrokeThickness="2" />
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver"
-                                     Value="true">
-                                <Setter TargetName="ellipse"
-                                        Property="Fill"
-                                        Value="#F0F0FF" />
-                            </Trigger>
-                            <Trigger Property="IsDragging"
-                                     Value="true">
-                                <Setter TargetName="ellipse"
-                                        Property="Fill"
-                                        Value="#E0E0FF" />
-                                <Setter TargetName="ellipse"
-                                        Property="StrokeThickness"
-                                        Value="3" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <!-- 滑块轨道按钮样式 -->
-        <Style x:Key="SliderRepeatButtonStyle"
-               TargetType="{x:Type RepeatButton}">
-            <Setter Property="SnapsToDevicePixels"
-                    Value="true" />
-            <Setter Property="OverridesDefaultStyle"
-                    Value="true" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type RepeatButton}">
-                        <Border Background="Red"
-                                Height="4"
-                                Margin="0,8" />
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </UserControl.Resources>
     <Grid>
-        <Slider Maximum="100" Value="50" Width="100" Background="Blue" Height="30">
-            <Slider.Template>
-                <ControlTemplate TargetType="Slider">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto"
-                                           MinHeight="{TemplateBinding MinHeight}" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <!-- 水平方向的轨道 -->
-                        <Track x:Name="PART_Track"
-                               Grid.Row="1">
-                            <!--<Track.DecreaseRepeatButton>
-                                <RepeatButton Command="Slider.DecreaseLarge"
-                                              Style="{StaticResource SliderRepeatButtonStyle}" />
-                            </Track.DecreaseRepeatButton>
-                            <Track.IncreaseRepeatButton>
-                                <RepeatButton Command="Slider.IncreaseLarge"
-                                              Style="{StaticResource SliderRepeatButtonStyle}" />
-                            </Track.IncreaseRepeatButton>-->
-                            <Track.Thumb>
-                                <Thumb Style="{StaticResource RoundThumbStyle}" />
-                            </Track.Thumb>
-                        </Track>
-                    </Grid>
-                </ControlTemplate>
-            </Slider.Template>
-        </Slider>
-        <!--<Canvas Width="1000"
-                Height="500"
-                Background="Red">
-            <Canvas Background="Yellow"
-                    Width="400"
-                    Height="237"
-                    Canvas.Left="510"
-                    Canvas.Top="257"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top">
-                <Slider Width="269"
-                        Maximum="100"
-                        Value="{Binding X}"
-                        Height="25"
-                        RenderTransformOrigin="0.5,0.5"
-                        Canvas.Left="-35"
-                        Canvas.Top="86"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center">
-                    <Slider.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="45.463" />
-                            <TranslateTransform />
-                        </TransformGroup>
-                    </Slider.RenderTransform>
-                    <Slider.Template>
-                        <ControlTemplate TargetType="Slider">
-                            <Canvas Height="20"
-                                    Width="4"
-                                    Background="Red">
-                                --><!--<Slider Maximum="200"
-                                        Value="{Binding Y}" />--><!--
-                            </Canvas>
-                        </ControlTemplate>
-                    </Slider.Template>
-                </Slider>
-                <Image Source="/Resources/Img/Z.png" />
-                <Canvas Background="Blue"
-                        Width="328"
-                        Height="266"
-                        Canvas.Left="-222"
-                        Canvas.Top="-2">
-                    <Image Source="/Resources/Img/Y.png" />
-                    <Canvas Height="271"
-                            Width="250"
-                            Background="Gray"
-                            Canvas.Left="208"
-                            Canvas.Top="-288">
-                        <Image Source="/Resources/Img/X.png" />
-                    </Canvas>
-                </Canvas>
-            </Canvas>
-        </Canvas>-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Canvas>
+            <Slider>
+                <Slider.Template>
+                    <ControlTemplate>
+                        
+                    </ControlTemplate>
+                </Slider.Template>
+            </Slider>
+        </Canvas>
+    
+        <!-- 下方控制：像 Slider 一样拖 -->
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0 10">
+            <TextBlock Text="X"
+                       VerticalAlignment="Center" />
+            <Slider x:Name="xSlider"
+                    Width="200"
+                    Minimum="0"
+                    Maximum="100"
+                    Value="{Binding X,Mode=TwoWay}" />
+            <TextBlock Text="Y"
+                       VerticalAlignment="Center"
+                       Margin="20 0 0 0" />
+            <Slider x:Name="ySlider"
+                    Width="200"
+                    Minimum="0"
+                    Maximum="100"
+                    Value="{Binding Y,Mode=TwoWay}" />
+            <TextBlock Text="Z"
+                       VerticalAlignment="Center"
+                       Margin="20 0 0 0" />
+            <Slider x:Name="zSlider"
+                    Width="200"
+                    Minimum="0"
+                    Maximum="100"
+                    Value="{Binding Z,Mode=TwoWay}" />
+        </StackPanel>
     </Grid>
 </UserControl>
