@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp3", "src\ConsoleA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "src\WebApplication1\WebApplication1.csproj", "{666D1ACF-A1BE-4A9C-8550-9F1E06043E08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismTest", "src\PrismTest\PrismTest.csproj", "{ACF27B8E-6DC3-4AF4-937E-19F8911B49BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +115,10 @@ Global
 		{666D1ACF-A1BE-4A9C-8550-9F1E06043E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{666D1ACF-A1BE-4A9C-8550-9F1E06043E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{666D1ACF-A1BE-4A9C-8550-9F1E06043E08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACF27B8E-6DC3-4AF4-937E-19F8911B49BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACF27B8E-6DC3-4AF4-937E-19F8911B49BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACF27B8E-6DC3-4AF4-937E-19F8911B49BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACF27B8E-6DC3-4AF4-937E-19F8911B49BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,6 +142,7 @@ Global
 		{7561572F-647E-4369-9BA5-5A9D3F8DF736} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{48E0C8B6-F1C8-45CD-89E3-B47AB9FC875F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{666D1ACF-A1BE-4A9C-8550-9F1E06043E08} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{ACF27B8E-6DC3-4AF4-937E-19F8911B49BC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3A5EC81-361F-4D7C-99DE-0071F629A496}
