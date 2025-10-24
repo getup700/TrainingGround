@@ -19,7 +19,7 @@ namespace PrismTest
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<CommonView, ShowViewModel>("Show");
+            containerRegistry.RegisterForNavigation<ShowView, ShowViewModel>("Show");
             containerRegistry.RegisterDialog<CommonView, EditViewModel>("Edit");
         }
     }

@@ -8,9 +8,9 @@ using System.Windows.Input;
 
 namespace PrismTest.ViewModels
 {
-    class EditViewModel : ViewModelBase, IDialogAware
+    class EditViewModel : ViewModelBase,  IDialogAware
     {
-        public EditViewModel() : base()
+        public EditViewModel() 
         {
             Title = "Edit";
             EditCommand = new DelegateCommand(Edit);

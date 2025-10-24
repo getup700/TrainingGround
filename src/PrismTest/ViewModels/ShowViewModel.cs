@@ -10,12 +10,11 @@ namespace PrismTest.ViewModels
 {
     class ShowViewModel:ViewModelBase,INavigationAware
     {
-        public ShowViewModel():base()
+        public ShowViewModel()
         {
             Title = "Show";
             ShowCommand = new DelegateCommand(Show);
         }
-
         public ICommand ShowCommand { get; }
 
         public bool IsNavigationTarget(NavigationContext navigationContext)
