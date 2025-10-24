@@ -12,11 +12,9 @@
              d:DesignWidth="800">
     <StackPanel>
         <StackPanel Height="20"
-                   Background="Green"
-                   hc:Growl.Token="Success" />
+                    Background="Green"/>
         <StackPanel Height="20"
-                   Background="Red"
-                   hc:Growl.Token="Error" />
+                    Background="Red" />
         <Button Content="SuccessCommand"
                 Command="{Binding SuccessCommand}" />
         <Button Content="InfoCommand"

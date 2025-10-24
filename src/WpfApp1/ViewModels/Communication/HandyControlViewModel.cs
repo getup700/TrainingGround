@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp1.Utils;
 using WpfApp1.Views;
 
 namespace WpfApp1.ViewModels.Communication;
@@ -26,7 +27,7 @@ internal partial class HandyControlViewModel:ObservableObject
     {
         Task.Run(() =>
         {
-            Growl.Info("ddddd","token"); 
+            Growl.InfoGlobal("ddddd"); 
         });
 
         var th = new Thread(() =>
@@ -39,38 +40,41 @@ internal partial class HandyControlViewModel:ObservableObject
     [RelayCommand]
     public void Success()
     {
-        Growl.Success("Success", "Success");
+        Growl.SuccessGlobal("Success");
+        //ToolUtil.OpenKeyBoardFun();
+
+        LanguageUtil.SwitchInputLanguage("0419");
     }
 
     [RelayCommand]
     public void Info()
     {
-        Growl.Info("Info", "Success");
+        Growl.InfoGlobal("Info");
     }
 
     [RelayCommand]
     public void Error()
     {
         var view = _serviceProvider.GetService<MainWindowViewModel>();
-        Growl.Error("error", "Error");
+        Growl.ErrorGlobal("error");
     }
 
     [RelayCommand]
     public void Warning()
     {
-        Growl.Warning("Warning", "Error");
+        Growl.WarningGlobal("Warning");
     }
 
     [RelayCommand]
     public void Fatal()
     {
-        Growl.Fatal("Fatal", "Error");
+        Growl.FatalGlobal("Fatal");
     }
 
     [RelayCommand]
     public void Ask()
     {
-        Growl.Ask("Ask", arg=> !arg, "Error");
+        Growl.AskGlobal("Ask", arg=> !arg);
     }
 
 }
