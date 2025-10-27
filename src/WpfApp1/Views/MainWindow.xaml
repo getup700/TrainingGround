@@ -42,6 +42,10 @@
                      Tag="CustomControlView"></TabItem>
             <TabItem Header="EntitySelector"
                      Tag="EntitySelectorView"></TabItem>
+            <TabItem Header="AxisMove"
+                     Tag="AxisView"></TabItem>
+            <TabItem Header="AxisMove"
+                     Tag="Axis2View"></TabItem>
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
                     <i:InvokeCommandAction Command="{Binding RouteCommand}"

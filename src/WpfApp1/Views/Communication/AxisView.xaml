@@ -14,16 +14,24 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Canvas>
-            <Slider>
-                <Slider.Template>
-                    <ControlTemplate>
-                        
-                    </ControlTemplate>
-                </Slider.Template>
-            </Slider>
+        <Canvas HorizontalAlignment="Center"
+                Margin="100">
+            <Image Source="/Resources/Img/Z.png" />
+            <Canvas Canvas.Left="{Binding ZHor}"
+                    Canvas.Top="{Binding ZVer}">
+                <Image Source="/Resources/Img/X1.png"
+                       Canvas.Left="-210" />
+                <Canvas Canvas.Left="{Binding X1Hor}"
+                        Canvas.Top="{Binding  X1Ver}">
+                    <Canvas Canvas.Left="{Binding Y1Hor}"
+                            Canvas.Top="{Binding Y1Ver}">
+                        <Image Source="/Resources/Img/Y1.png"
+                               Canvas.Top="-290"
+                               Canvas.Left="-5" />
+                    </Canvas>
+                </Canvas>
+            </Canvas>
         </Canvas>
-    
         <!-- 下方控制：像 Slider 一样拖 -->
         <StackPanel Grid.Row="1"
                     Orientation="Horizontal"
