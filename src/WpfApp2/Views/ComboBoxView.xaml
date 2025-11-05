@@ -47,7 +47,13 @@
             </Image>
             <Border Width="100"
                     Height="100"
-                    Background="Blue" />
+                    Background="Blue">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDown">
+                        <i:InvokeCommandAction Command="{Binding SelectionChangedCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Border>
         </StackPanel>
         <!--<TextBlock Text="32323232">
             <animations:Implicit.Animations>
