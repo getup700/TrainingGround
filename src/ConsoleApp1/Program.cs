@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1.Serialize;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -63,12 +64,14 @@ class Program
         //new SampleClass1().DoSomething();
 
 
-        Action action1 = Run1;
-        action1 += Run2;
-        action1 += Run3;
-        action1 += Run2;
+        //Action action1 = Run1;
+        //action1 += Run2;
+        //action1 += Run3;
+        //action1 += Run2;
 
-        action1.Invoke();
+        //action1.Invoke();
+
+        SerializeTest.Run();
        
     }
 

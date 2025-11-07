@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows;
 using Prism.DryIoc;
+using Prism.Mvvm;
 using PrismTest.ViewModels;
 using PrismTest.Views;
 
@@ -19,8 +20,11 @@ namespace PrismTest
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<ShowView, ShowViewModel>("Show");
+            containerRegistry.RegisterForNavigation<CommonView, ShowViewModel>("Show");
             containerRegistry.RegisterDialog<CommonView, EditViewModel>("Edit");
+
+            ViewModelLocationProvider.Register(typeof(CommonView).ToString(), typeof(ShowViewModel));
+            ViewModelLocationProvider.Register(typeof(CommonView).ToString(), typeof(EditViewModel));
         }
     }
 
