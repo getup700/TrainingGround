@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,40 +13,19 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Windows.UI.Composition;
-using Canvas = System.Windows.Controls.Canvas;
 
-namespace WpfApp2.Views
+namespace WpfAnimation.Views
 {
     /// <summary>
-    /// AnimationView.xaml 的交互逻辑
+    /// PathAnimationView.xaml 的交互逻辑
     /// </summary>
-    public partial class AnimationView : UserControl
+    public partial class PathAnimationView : UserControl
     {
-        private Storyboard _sb;
-        private Storyboard _pathSb;
-        public AnimationView()
+        public PathAnimationView()
         {
             InitializeComponent();
-            CreateAnimation(); CreatePathAnimation();
         }
 
-        private void CreateAnimation()
-        {
-            //创建动画
-            var doubleAnimation = new DoubleAnimation();
-            doubleAnimation.From = 1;
-            doubleAnimation.To = 0;
-
-            doubleAnimation.Duration = new Duration(TimeSpan.FromSeconds(4));
-
-            //创建故事板
-            _sb = new Storyboard();
-            _sb.Children.Add(doubleAnimation);
-            Storyboard.SetTargetName(doubleAnimation, "toggle");
-            Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath(TextBlock.OpacityProperty));
-
-        }
 
         private void CreatePathAnimation()
         {
@@ -64,11 +42,12 @@ namespace WpfApp2.Views
             //pathFigure.Segments.Add(new LineSegment(new Point(200, 50), isStroked: true));
             //pathFigure.Segments.Add(new LineSegment(new Point(200, 200), isStroked: true));
 
-            pathFigure.Segments.Add(new QuadraticBezierSegment(
-    new Point(200, 150),  // 唯一控制点
-    new Point(350, 50),   // 终点
-    isStroked: true
-));
+            pathFigure.Segments.Add(
+                new QuadraticBezierSegment(
+                new Point(200, 150),  // 唯一控制点
+                new Point(350, 50),   // 终点
+                isStroked: true
+            ));
             pathGeometry.Figures.Add(pathFigure);
 
             var path = new Path();
@@ -95,19 +74,9 @@ namespace WpfApp2.Views
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            _sb.Pause(this);
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            _sb.Resume(this);
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            _sb.Begin(this);
+            CreatePathAnimation();
         }
     }
 }

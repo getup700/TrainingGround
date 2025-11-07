@@ -9,148 +9,16 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <UserControl.Resources>
-        <!--  定义圆角拟态风格按钮  -->
-        <Style
-            x:Key="NeumorphismButton"
-            TargetType="Button">
-            <!--  设置按钮的外观  -->
-            <Setter Property="Width" Value="200" />
-            <Setter Property="Height" Value="60" />
-            <Setter Property="FontSize" Value="16" />
-            <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Background">
-                <Setter.Value>
-                    <!--  渐变背景  -->
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                        <GradientStop Offset="0.0" Color="#e0e5ec" />
-                        <GradientStop Offset="1.0" Color="#c1c8d0" />
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
-            <!--  设置内边距  -->
-            <Setter Property="Padding" Value="10" />
-            <!--  定义按钮的阴影效果  -->
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <!--  外阴影  -->
-                    <DropShadowEffect
-                        BlurRadius="10"
-                        Direction="315"
-                        Opacity="0.4"
-                        ShadowDepth="5"
-                        Color="#A0AEBB" />
-                </Setter.Value>
-            </Setter>
-            <!--  鼠标悬停时的效果  -->
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <!--  鼠标悬停时改变背景色  -->
-                    <Setter Property="Background">
-                        <Setter.Value>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                <GradientStop Offset="0.0" Color="#c1c8d0" />
-                                <GradientStop Offset="1.0" Color="#e0e5ec" />
-                            </LinearGradientBrush>
-                        </Setter.Value>
-                    </Setter>
-                    <!--  鼠标悬停时的阴影效果  -->
-                    <Setter Property="Effect">
-                        <Setter.Value>
-                            <DropShadowEffect
-                                BlurRadius="15"
-                                Direction="315"
-                                Opacity="0.5"
-                                ShadowDepth="8"
-                                Color="#8c9ba7" />
-                        </Setter.Value>
-                    </Setter>
-                </Trigger>
-                <!--  鼠标按下时的效果  -->
-                <Trigger Property="IsPressed" Value="True">
-                    <!--  按下时按钮颜色变化  -->
-                    <Setter Property="Background">
-                        <Setter.Value>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                <GradientStop Offset="0.0" Color="#c1c8d0" />
-                                <GradientStop Offset="1.0" Color="#e0e5ec" />
-                            </LinearGradientBrush>
-                        </Setter.Value>
-                    </Setter>
-                    <!--  按下时的阴影效果  -->
-                    <Setter Property="Effect">
-                        <Setter.Value>
-                            <DropShadowEffect
-                                BlurRadius="5"
-                                Direction="315"
-                                Opacity="0.5"
-                                ShadowDepth="3"
-                                Color="#7f8d99" />
-                        </Setter.Value>
-                    </Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-        <Storyboard
-            x:Key="ComplexAnimation"
-            x:Name="ComplexAnimation"
-            AutoReverse="True">
-            <!--  DoubleAnimation 动画：指定目标为 Rectangle，动画属性为 Width  -->
-            <DoubleAnimation
-                RepeatBehavior="Forever"
-                Storyboard.TargetName="Rectangle"
-                Storyboard.TargetProperty="Width"
-                From="50"
-                To="400"
-                Duration="0:0:3" />
-        </Storyboard>
-        <Storyboard
-            x:Key="WidthAnimation"
-            RepeatBehavior="Forever">
-            <DoubleAnimationUsingKeyFrames
-                Storyboard.TargetName="Rectangle"
-                Storyboard.TargetProperty="Width">
-                <EasingDoubleKeyFrame
-                    KeyTime="0:0:2"
-                    Value="400">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <!--<SineEase
-                            EasingMode="EaseOut" />-->
-                        <ElasticEase
-                            EasingMode="EaseOut"
-                            Oscillations="0"
-                            Springiness="3" />
-                        <!--  结束时减速  -->
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-                <EasingDoubleKeyFrame
-                    KeyTime="0:0:4"
-                    Value="200">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <!--<SineEase
-                            EasingMode="EaseIn" />-->
-                        <ElasticEase
-                            EasingMode="EaseIn"
-                            Oscillations="0"
-                            Springiness="3" />
-                        <!--  开始时减速  -->
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
     </UserControl.Resources>
-    <StackPanel
-        Background="Black">
-        <Button
-            Width="150"
-            Height="50"
-            BorderThickness="0"
-            Content="拟态按钮"
-            FontSize="16"
-            Foreground="#666"
-            Style="{StaticResource NeumorphismButton}" />
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Pause"
+                    Click="Button_Click" />
+            <Button Content="Resume"
+                    Click="Button_Click_1" />
+            <Button Content="Begin"
+                    Click="Button_Click_2" />
+        </StackPanel>
         <ToggleButton
             x:Name="toggle"
             Content="{Binding ElementName=toggle, Path=IsChecked}">
@@ -185,47 +53,6 @@
         </ToggleButton>
         <Border
             x:Name="border">
-            <Border.Style>
-                <Style
-                    TargetType="{x:Type Border}">
-                    <Style.Triggers>
-                        <!--<DataTrigger
-                            Binding="{Binding ElementName=toggle, Path=IsChecked}"
-                            Value="True">
-                            <DataTrigger.EnterActions>
-                                <BeginStoryboard
-                                    x:Name="expandStoryboard">
-                                    <Storyboard>
-                                        <DoubleAnimation
-                                            Storyboard.TargetName="listBox"
-                                            Storyboard.TargetProperty="(FrameworkElement.Width)"
-                                            From="0"
-                                            To="200"
-                                            Duration="0:0:1" />
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </DataTrigger.EnterActions>
-                        </DataTrigger>-->
-                        <!--<DataTrigger
-                            Binding="{Binding ElementName=toggle, Path=IsChecked}"
-                            Value="False">
-                            <DataTrigger.EnterActions>
-                                <BeginStoryboard
-                                    x:Name="collapseStoryboard">
-                                    <Storyboard>
-                                        <DoubleAnimation
-                                            Storyboard.TargetName="listBox"
-                                            Storyboard.TargetProperty="(FrameworkElement.Width)"
-                                            From="200"
-                                            To="0"
-                                            Duration="0:0:1" />
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </DataTrigger.EnterActions>
-                        </DataTrigger>-->
-                    </Style.Triggers>
-                </Style>
-            </Border.Style>
             <ListBox
                 x:Name="listBox">
                 <ListBoxItem
@@ -234,17 +61,19 @@
                     Content="1111" />
                 <ListBoxItem
                     Content="1111" />
-                <ListBoxItem
-                    Content="1111" />
-                <ListBoxItem
-                    Content="1111" />
-                <ListBoxItem
-                    Content="1111" />
-                <ListBoxItem
-                    Content="1111" />
-                <ListBoxItem
-                    Content="1111" />
+               
             </ListBox>
         </Border>
+        <Canvas x:Name="canvas" Height="300" Width="500" Background="AliceBlue">
+            <Ellipse x:Name="ellipse"
+                     Height="10"
+                     Fill="Red"
+                     Width="10">
+                <Ellipse.RenderTransform>
+                    <TranslateTransform X="-5"
+                                        Y="-5" />
+                </Ellipse.RenderTransform>
+            </Ellipse>
+        </Canvas>
     </StackPanel>
 </UserControl>

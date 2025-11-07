@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerialCommunication", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismTest", "src\PrismTest\PrismTest.csproj", "{ACF27B8E-6DC3-4AF4-937E-19F8911B49BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAnimation", "src\WpfAnimation\WpfAnimation.csproj", "{28E5554E-DD21-4359-90A6-6CD056053654}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -127,6 +129,10 @@ Global
 		{ACF27B8E-6DC3-4AF4-937E-19F8911B49BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACF27B8E-6DC3-4AF4-937E-19F8911B49BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACF27B8E-6DC3-4AF4-937E-19F8911B49BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28E5554E-DD21-4359-90A6-6CD056053654}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28E5554E-DD21-4359-90A6-6CD056053654}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28E5554E-DD21-4359-90A6-6CD056053654}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28E5554E-DD21-4359-90A6-6CD056053654}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -153,6 +159,7 @@ Global
 		{928F47C3-6868-4336-928F-0B0DA27345BC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{3B0FBA4B-3B47-4919-8AB0-D47ECA792C23} = {928F47C3-6868-4336-928F-0B0DA27345BC}
 		{ACF27B8E-6DC3-4AF4-937E-19F8911B49BC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{28E5554E-DD21-4359-90A6-6CD056053654} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3A5EC81-361F-4D7C-99DE-0071F629A496}

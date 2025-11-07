@@ -10,8 +10,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Img\X.png" />
-	  <None Remove="Resources\Img\Y.png" />
 	  <None Remove="Resources\Img\Z.png" />
 	</ItemGroup>
 
@@ -28,10 +26,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Resource Include="Resources\Img\X.png">
+	  <Resource Include="Resources\Img\Y1.png">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Resource>
-	  <Resource Include="Resources\Img\Y.png">
+	  <Resource Include="Resources\Img\X1.png">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Resource>
 	  <Resource Include="Resources\Img\Z.png">
